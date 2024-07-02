@@ -1,0 +1,74 @@
+body {
+    background-color: #f0f0f0; /* Ein leichtes Grau */
+    margin: 0; /* Entfernt standardmäßige Ränder */
+    padding: 0; /* Entfernt standardmäßige Abstände */
+    font-family: Arial, sans-serif; /* Optional: Standard-Schriftart festlegen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Höhe des Viewports, damit es immer die gesamte Höhe ausfüllt */
+    flex-direction: column; /* Damit Header und Container untereinander sind */
+    text-align: center; /* Zentriert den Text im Header */
+}
+
+.header {
+    margin-bottom: 20px; /* Abstand zwischen Header und Container */
+}
+
+.outer-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Ändern Sie diese Werte entsprechend Ihren Anforderungen */
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px; /* Optional: Abstand zwischen den Grid-Items */
+    align-items: center;
+    justify-items: center;
+    max-width: 100%;
+}
+
+.outer-container > Button {
+    width: 150px; /* Setzen Sie die gewünschte Breite */
+    height: 150px; /* Setzen Sie die gewünschte Höhe */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #ccc; /* Optional: Rahmen um die div-Elemente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Schatten um die div-Elemente */
+    padding: 10px; /* Optional: Innenabstand */
+    background-color: #f9f9f9; /* Optional: Hintergrundfarbe */
+}
+
+.outer-container img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+}
+
+
+p{
+    position: absolute;
+    margin-bottom: 11rem;
+    text-transform: none;
+    size: 50%;
+    color: black;
+}
+
+
+
+@media (max-width: 1200px) {
+    .outer-container {
+        grid-template-columns: repeat(4, 1fr); /* Reduziert die Anzahl der Spalten für mittlere Bildschirme */
+    }
+}
+
+@media (max-width: 800px) {
+    .outer-container {
+        grid-template-columns: repeat(2, 1fr); /* Reduziert die Anzahl der Spalten für kleine Bildschirme */
+    }
+}
+
+@media (max-width: 500px) {
+    .outer-container {
+        grid-template-columns: repeat(1, 1fr); /* Eine Spalte für sehr kleine Bildschirme */
+    }
+}
