@@ -13,22 +13,22 @@ import KnopfLochReparieren from "../../assets/HoseBilder/KnopflochReparieren.png
 import Gürtelschlaufe from "../../assets/HoseBilder/GürtelSchlaufe.png";
 import sonstige from "../../assets/mainBilder/sonstige.png";
 import "./Hose.css";
-import {Button} from "@mui/material";
-import { transform } from "typescript";
-
+import { Button } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
 const services = [
-  { src: HKürzen, text: "Hose kürzen"},
+  {Titel: "Hose"},
+  { src: HKürzen, text: "Hose kürzen" },
   { src: HBundEnger, text: "Bund enger machen" },
-  { src: HReissverschluss, text: "Reißverschluss repa."},
+  { src: HReissverschluss, text: "Reißverschluss repa." },
   { src: HFussWeite, text: "Fußweite anpassen" },
-  { src: JKürzen, text: "Jeans kürzen"},
-  { src: JBundEnger, text: "Jeans Bund enger"},
+  { src: JKürzen, text: "Jeans kürzen" },
+  { src: JBundEnger, text: "Jeans Bund enger" },
   { src: JReissverschluss, text: "Jeans Reißverschluss r." },
   { src: JFussweite, text: "Fußweite anpassen" },
-  { src: KnopfErsetzen, text: "Knopf ersetzen"},
+  { src: KnopfErsetzen, text: "Knopf ersetzen" },
   { src: KnopfLochReparieren, text: "Knopfloch reparieren" },
-  { src: Gürtelschlaufe, text: "Gürtelschlaufe rep."},
+  { src: Gürtelschlaufe, text: "Gürtelschlaufe rep." },
   { src: sonstige, text: "sonstiges" },
 ];
 
@@ -36,10 +36,9 @@ export const Hose = () => {
 
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate('/Leistung')
+  const handleClick = (service) => {
+    navigate("/AuftragForm", { state :{ service }});
   };
-
 
   return (
     <div>
@@ -47,12 +46,14 @@ export const Hose = () => {
         <h2>Bitte wählen Sie die Leistung</h2>
       </div>
       <div className="outer-container">
-        {services.map((services) => (
-          <Button style={{height: "200px",width: "200px"}}
-            onClick={() => handleClick()}
+        {services.map((service) => (
+          <Button
+            key={service.text}
+            style={{ height: "200px", width: "200px" }}
+            onClick={() => handleClick(service)}
           >
-            <img src={services.src} alt={services.text} />
-            <p>{services.text}</p>
+            <img src={service.src} alt={service.text} />
+            <p>{service.text}</p>
           </Button>
         ))}
       </div>
