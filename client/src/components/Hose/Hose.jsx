@@ -17,7 +17,6 @@ import { Button } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
 const services = [
-  {Titel: "Hose"},
   { src: HKürzen, text: "Hose kürzen" },
   { src: HBundEnger, text: "Bund enger machen" },
   { src: HReissverschluss, text: "Reißverschluss repa." },

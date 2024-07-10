@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export const AuftragForm = () => {
-  const state = useLocation(); // useLocation-Hook verwenden, um den Zustand zu erhalten
-  const  service  = state; // Dienstleistungsdetails aus dem Zustand extrahieren
-
+  const {state} = useLocation(); 
+  const {service} = state;
   // Lokale Zustände für das Formular
   const [name, setName] = useState("");
   const [vorname, setVorname] = useState("");
@@ -12,57 +12,35 @@ export const AuftragForm = () => {
 
   // Handler für Formularabsendung
   const handleSubmit = (event) => {
-
-    // Formulardaten sammeln
-    const formData = {
+  
+      event.preventDefault()    
+   /* const formData = {
       service: service.text,
       name,
       vorname,
       additionalFields,
-    };
-
-    console.log("Form submitted: ", formData); // Formulardaten in der Konsole anzeigen
-
+    }; */
+      console.log("submit wurde gedrückt")
+  
     // Hier kann der API-Aufruf zur Speicherung der Daten implementiert werden
   };
 
   return (
-
     <div>
-        <h2>Auftrag: {service.Titel}</h2>
-        <h3>Leistung: {service.text}</h3>
-    </div>
-
-   /*<div>
       <h2>Auftrag: Hose</h2>
       <h3>Leistung: {service.text}</h3>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+          <input placeholder="NAME" type="text"value={name} onChange={(e) => setName(e.target.value)}/>
         </div>
         <div>
-          <label>Vorname:</label>
-          <input
-            type="text"
-            value={vorname}
-            onChange={(e) => setVorname(e.target.value)}
-          />
+          <input placeholder="VORNAME" type="text"value={vorname} onChange={(e) => setVorname(e.target.value)}/>
         </div>
         <div>
-          <label>Additional Fields:</label>
-          <input
-            type="text"
-            value={additionalFields}
-            onChange={(e) => setAdditionalFields(e.target.value)}
-          />
+          <input placeholder="preis €" type="text"value={additionalFields} onChange={(e) => setAdditionalFields(e.target.value)} />
         </div>
-        <button type="submit">Submit</button>
+        <Button type="submit">Submit</Button>
       </form>
-    </div>*/
+    </div>
   );
 };
