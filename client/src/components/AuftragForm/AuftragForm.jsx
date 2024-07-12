@@ -35,7 +35,6 @@ export const AuftragForm = () => {
       Preis: Kunde.Preis
       }
 
-      axios.post(``).then;
     }
   return (
     <div>
